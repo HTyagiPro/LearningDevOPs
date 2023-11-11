@@ -1,0 +1,90 @@
+Podman is a open source platform
+It is used for containerization of applications.
+It is an alternative to docker
+
+
+
+podman run:
+	Description: Run a command in a new container.
+	Example: podman run -it --rm my-image
+
+podman ps:
+	Description: List containers.
+	Example: podman ps
+
+podman images:
+	Description: List container images.
+	Example: podman images
+
+podman build:
+	Description: Build a container image from a Dockerfile.
+	Example: podman build -t my-image .
+
+podman exec:
+	Description: Run a command in a running container.
+	Example: podman exec -it my-container bash
+
+podman pull:
+	Description: Pull an image from a container registry.
+	Example: podman pull my-image
+
+podman push:
+	Description: Push an image to a container registry.
+	Example: podman push my-image
+
+podman network ls:
+	Description: List networks.
+	Example: podman network ls
+
+podman volume ls:
+	Description: List volumes.
+	Example: podman volume ls
+
+podman info:
+	Description: Display system-wide information.
+	Example: podman info
+
+podman inspect:
+	Description: Display detailed information about containers, images, or other resources.
+	Example: podman inspect my-container
+
+podman stop:
+	Description: Stop one or more running containers.
+	Example: podman stop my-container
+
+podman rm:
+	Description: Remove one or more containers.
+	Example: podman rm my-container
+
+podman rmi:
+	Description: Remove one or more container images.
+	Example: podman rmi my-image
+
+podman logs:
+	Description: Fetch the logs of a container.
+	Example: podman logs my-container
+
+podman save:
+	Description: Save an image to a tarball.
+	Example: podman save -o my-image.tar my-image
+
+podman load:
+	Description: Load an image from a tarball.
+	Example: podman load -i my-image.tar
+
+podman version:
+	Description: Display the Podman version information.
+	Example: podman version
+
+
+Start Processes in Containers:
+	Syntax: podman exec [options] container [command ...]
+	Example: podman exec httpd cat /etc/httpd/conf/httpd.conf
+
+Open an Interactive Session in Containers:
+	Syntax: podman exec [options] /bin/bash
+	Example: podman exec -il /bin/bash
+
+Copy Files In and Out of Containers:
+	Syntax: podman cp [options] [container:]source_path [container:]destination_path
+	Example: podman cp a3bd6c81092e:/tmp/logs .
