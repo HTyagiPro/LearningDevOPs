@@ -88,3 +88,43 @@ Open an Interactive Session in Containers:
 Copy Files In and Out of Containers:
 	Syntax: podman cp [options] [container:]source_path [container:]destination_path
 	Example: podman cp a3bd6c81092e:/tmp/logs .
+
+Inspect Containers
+	Syntax: podman inspect [containerID..]
+	Example: podman inspect 7763097d11ab
+
+Stoping Containers
+	Syntax: podman stop [containerID..]
+	Example: podman stop 7763097d11ab
+
+Stoping all Containers
+	Syntax: podman stop --all
+	Example: podman stop --all
+	
+Note: 	'podman stop' command sends 'SIGTERM' signal to the container which first performs clean up procedures before storing the container.
+		Later it send 'SIGKILL' signal to the container which stops/kill the running container.
+		By default podman waits 10s before killing the container this behaviour can be changed by using --time flag
+		Example:	podman stop --time=100 (now wait time will be 100s)
+		'SIGKILL' signal kills the container forcefully.
+
+Pausing the container
+	Syntax: podman pause [containerID..]
+	Example: podman pause 4f2038c05b8c
+Note:	'podman pause' command sends 'SIGSTOP' signal to container which suspends all the processes running in the container. 
+
+
+Unpausing the container
+	Syntax: podman unpause [containerID..]
+	Example: podman unpause 4f2038c05b8c
+
+Removing container
+	Syntax: podman rm [containerID..]
+	Example: podman rm 4f2038c05b8c
+
+Note:	Forcefully removing of container requires to add a flag '-f' or using '--force'
+		Example: podman rm 4f2038c05b8c -f
+
+Removing all containers
+	Example: podman rm --all
+
+
