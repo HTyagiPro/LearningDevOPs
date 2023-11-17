@@ -101,7 +101,7 @@ Stoping all Containers
 	Syntax: podman stop --all
 	Example: podman stop --all
 	
-Note: 	'podman stop' command sends 'SIGTERM' signal to the container which first performs clean up procedures before storing the container.
+Note: 	'podman stop' command sends 'SIGTERM' signal to the container which first performs clean up procedures before stoping the container.
 		Later it send 'SIGKILL' signal to the container which stops/kill the running container.
 		By default podman waits 10s before killing the container this behaviour can be changed by using --time flag
 		Example:	podman stop --time=100 (now wait time will be 100s)
@@ -128,3 +128,29 @@ Removing all containers
 	Example: podman rm --all
 
 
+Container file instructions:
+
+FROM: Sets the base image for the resulting container.
+WORKDIR: Sets current working directory
+	COPY: Copy the files from host file system to resulting container.
+	ADD:	Copy files from URL.
+			Unpackaging tar archives in destination image.
+RUN: Runs the command in the container and commits the resulting state.
+ENTRYPOINT:	Set the executable to run when the container is started.
+CMD:	Runs a command when the container is started
+		The command passed by to executable in ENTRYPOINT
+		Base image defines a default ENTRYPOINT which is usually a shell executable such as bash.
+USER:	Changes the active user within the container.
+LABEL:	Key-value pair to the meta data.
+EXPOSE:	Add a port to the image metadata indicating that an application with in the container bind the port.
+ENV:	Defines environment variables
+ARG:	Defines build time variables
+Volumes:Defines where to store data outside of container.
+
+
+Advanced instructions:
+
+ENV DB_HOST="db.example.com"
+
+from os import environ
+Db_Host = environ.get('DB_HOST');
